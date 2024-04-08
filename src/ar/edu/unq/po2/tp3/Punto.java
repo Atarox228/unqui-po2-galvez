@@ -2,29 +2,24 @@ package ar.edu.unq.po2.tp3;
 
 public class Punto {
 
-	private float x;
-	private float y;
+	private String a = "abc";
+	private String s = a;
+	private String t ;
 	
-	public Punto(float x, float y) {
-		super();
-		this.x = x;
-		this.y = y;
-	}
-	
-	public float getX() {
-		return x;
-	}
-
-	public void setX(float x) {
-		this.x = x;
-	}
-
-	public float getY() {
-		return y;
-	}
-
-	public void setY(float y) {
-		this.y = y;
+	public String getT() {
+		return t;
 	}
 	
+	public void setT(String t) {
+		this.t = t;
+	}
+
+	public String getA() {
+		return a;
+	}
+
+	public String getS() {
+		return s;
+	}
+
 }
