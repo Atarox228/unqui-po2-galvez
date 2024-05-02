@@ -1,20 +1,20 @@
-package ar.edu.unq.po2.tp5.mercado;
-
-import ar.edu.unq.po2.tp5.mercado.Producto;
+package ar.edu.unq.po2.tp5.mercadob;
 
 public class Caja {
 
 	private double montoAPagar;
-		
-	public Caja() {
+	private Mercado mercado ;
+
+	public Caja( Mercado mercado) {
 		super();
 		this.montoAPagar = 0;
+		this.mercado = mercado;
 	}
 		
 	public void registrar(Producto producto){
 		
 		this.montoAPagar += producto.getPrice();
-		producto.reducirCantidad();
+		this.mercado.decrementarCantidadProducto(producto);
 		
 	}
 	

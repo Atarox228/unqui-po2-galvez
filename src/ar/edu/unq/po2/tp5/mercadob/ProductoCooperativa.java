@@ -1,19 +1,17 @@
-package ar.edu.unq.po2.tp5.mercado;
-
-import ar.edu.unq.po2.tp5.mercado.Producto;
+package ar.edu.unq.po2.tp5.mercadob;
 
 public class ProductoCooperativa extends Producto{
 
 	private double descuento;
 	
-	public ProductoCooperativa(String name, double price,  int stock) {
-		super(name, price, stock);
+	public ProductoCooperativa(double price, String name, int stock) {
+		super(price, name, stock);
 		this.descuento = 10;
 		// TODO Auto-generated constructor stub
 	}
 	
-	public ProductoCooperativa(String name, double price, int stock, double descuento) {
-		super(name, price, stock);
+	public ProductoCooperativa(double price, String name, int stock, double descuento) {
+		super(price, name, stock);
 		this.descuento = descuento;
 	}
 	
