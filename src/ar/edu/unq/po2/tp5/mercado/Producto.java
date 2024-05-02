@@ -12,6 +12,10 @@ public abstract class Producto {
 		this.price = price;
 		this.stock = stock;
 	}
+
+	public String getName() {
+		return name;
+	}
 	
 	public int getStock() {
 		return stock;
@@ -24,5 +28,9 @@ public abstract class Producto {
 	
 	public void reducirCantidad() {
 		stock--;
+	}
+
+	public void aumentarCantidad() {
+		stock++;
 	}
 }
