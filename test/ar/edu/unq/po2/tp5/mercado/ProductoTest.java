@@ -2,8 +2,6 @@ package ar.edu.unq.po2.tp5.mercado;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import ar.edu.unq.po2.tp5.mercado.Producto;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,6 +9,7 @@ class ProductoTest {
 
   private Producto arroz;
   private Producto detergente;
+  private Producto leche;
 
   @BeforeEach
   public void setUp() throws Exception {
@@ -39,10 +38,10 @@ class ProductoTest {
 
   @Test 
   public void testReducirStack(){
-    arroz.reducirStock();
+    arroz.reducirCantidad();
     assertEquals(9, arroz.getStock());
     
-    detergente.aumentarStock();
+    detergente.aumentarCantidad();
     assertEquals(2, detergente.getStock());
   }
 

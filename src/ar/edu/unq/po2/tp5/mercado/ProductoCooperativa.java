@@ -1,7 +1,5 @@
 package ar.edu.unq.po2.tp5.mercado;
 
-import ar.edu.unq.po2.tp5.mercado.Producto;
-
 public class ProductoCooperativa extends Producto{
 
 	private double descuento;

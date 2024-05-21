@@ -1,8 +1,6 @@
 package ar.edu.unq.po2.tp5.mercado;
 
-import ar.edu.unq.po2.tp5.mercado.Producto;
-
-public class Caja {
+public class Caja implements Agencia{
 
 	private double montoAPagar;
 		
@@ -10,16 +8,28 @@ public class Caja {
 		super();
 		this.montoAPagar = 0;
 	}
-		
+	
+	public double getMontoAPagar() {
+		return montoAPagar;
+	}
+	
+	
 	public void registrar(Producto producto){
 		
 		this.montoAPagar += producto.getPrice();
 		producto.reducirCantidad();
 		
 	}
-	
-	public double getMontoAPagar() {
-		return montoAPagar;
-	}
+
+	@Override
+	public void registrarPago(Factura factura) {
 		
+		
+	}
+	
+	public void registrarFactura(Factura factura) {
+		
+		montoAPagar += factura.getMonto();
+		registrarPago(factura);
+	}
 }

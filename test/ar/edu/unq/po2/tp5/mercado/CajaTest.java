@@ -2,9 +2,6 @@ package ar.edu.unq.po2.tp5.mercado;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import ar.edu.unq.po2.tp5.mercado.Caja;
-import ar.edu.unq.po2.tp5.mercado.Producto;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

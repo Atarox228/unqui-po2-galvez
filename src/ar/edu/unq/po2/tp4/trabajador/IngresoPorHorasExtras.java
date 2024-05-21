@@ -16,6 +16,10 @@ public class IngresoPorHorasExtras extends Ingresos{
 		
 		return 0;
 	}
+
+	public int getCantHorasExtras() {
+		return cantHorasExtras;
+	}
 	
 	
 }

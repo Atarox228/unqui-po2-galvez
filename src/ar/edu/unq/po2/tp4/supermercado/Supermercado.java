@@ -33,6 +33,14 @@ public class Supermercado {
 		
 		return this.getProductos().stream().mapToDouble(p -> p.getPrecio()).sum();
 	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
 	
 }
 

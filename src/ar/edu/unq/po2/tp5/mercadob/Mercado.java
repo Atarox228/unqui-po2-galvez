@@ -1,6 +1,5 @@
 package ar.edu.unq.po2.tp5.mercadob;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,6 +25,10 @@ public class Mercado {
 	public void decrementarCantidadProducto(Producto producto) {
 		int cantidad = this.productos.get(producto) - 1;
 		this.productos.put(producto, cantidad);
+	}
+
+	public String getNombre() {
+		return nombre;
 	}
 	
 }
