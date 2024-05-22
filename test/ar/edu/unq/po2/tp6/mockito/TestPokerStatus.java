@@ -17,38 +17,45 @@ class TestPokerStatus {
 	@Test
 	void pokerDeLetras() {
 		//exercise
-		boolean resultado = poker.verificar("QD", "QP", "QC", "QT", "KD");
+		String resultado = poker.verificar("QD", "QP", "QC", "QT", "KD");
 		//verify
-		assertTrue(resultado);
+		assertEquals(resultado, "Poquer");
 		
 	}
 	
 	@Test
 	void pierna() {
 		//exercise		
-		boolean resultado = poker.verificar("9D", "8P", "9C", "7T", "9T");
+		String resultado = poker.verificar("9D", "8P", "9C", "7T", "9T");
 		//verify
-		assertFalse(resultado);
+		assertEquals(resultado, "Trio");
 		
 	}
 	
 	@Test
 	void doblePar() {
 		//exercise	
-		boolean resultado = poker.verificar("2D", "2P", "1C", "3T", "3C");
+		String resultado = poker.verificar("2D", "2P", "1C", "3T", "3C");
 		//verify
-		assertFalse(resultado);
+		assertEquals(resultado, "Nada");
 		
 	}
 	
 	@Test
 	void pokerDeNumeros() {
 		//exercise
-		boolean resultado = poker.verificar("4D", "5P", "4C", "4T", "4P");
+		String resultado = poker.verificar("4D", "5P", "4C", "4T", "4P");
 		//verify
-		assertTrue(resultado);
+		assertEquals(resultado, "Poquer");
 		
 	}
 	
-	
+	@Test
+	void color() {
+		//exercise
+		String resultado = poker.verificar("4P", "5P", "6P", "7P", "9P");
+		//verify
+		assertEquals(resultado, "Color");
+		
+	}
 }

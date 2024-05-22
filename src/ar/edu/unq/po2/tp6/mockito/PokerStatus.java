@@ -16,24 +16,40 @@ public class PokerStatus {
 		return c.substring(0, c.length()-1);
 	}
 	
-	public boolean verificar(String c1, String c2, String c3, String c4, String c5)
+	public String verificar(String c1, String c2, String c3, String c4, String c5)
     {
         
 		String[] cartas = {c1,c2,c3,c4,c5};
-		Map<String, Integer> cuentaCartas = new HashMap<>();
+		Map<String, Integer> cuentaValores = new HashMap<>();
+		Map<Character, Integer> cuentaPalos= new HashMap<>();
 		
 		for (String carta : cartas) {
             String valor = carta.length() == 3 ? carta.substring(0, 2) : carta.substring(0, 1);
-            cuentaCartas.put(valor, cuentaCartas.getOrDefault(valor, 0) + 1);
+            char palo = carta.charAt(carta.length() - 1);
+            
+            cuentaValores.put(valor, cuentaValores.getOrDefault(valor, 0) + 1);
+            cuentaPalos.put(palo, cuentaPalos.getOrDefault(palo, 0) + 1);
+            
         }
         
-		for (int count : cuentaCartas.values()) {
-            if (count == 4) {
-                return true;
+		for (int count : cuentaValores.values()) {
+            
+			if (count == 4) {
+                return "Poquer";
+            }
+            else if (count == 3) {
+                return "Trio";
             }
         }
 		
-        return false;
+		for (int count : cuentaPalos.values() ) {
+			
+			if(count == 5) {
+				return "Color";
+			}
+		}
+		
+        return "Nada";
         
     }
 	
