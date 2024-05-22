@@ -16,7 +16,7 @@ public class PokerStatus {
 		return c.substring(0, c.length()-1);
 	}
 	
-	public String verificar(Carta c1, Carta c2, Carta c3, Carta c4, Carta c5)
+	public Jugada verificar(Carta c1, Carta c2, Carta c3, Carta c4, Carta c5)
     {
         
 		Carta[] cartas = {c1,c2,c3,c4,c5};
@@ -24,7 +24,7 @@ public class PokerStatus {
 		Map<Palos, Integer> cuentaPalos= new HashMap<>();
 		
 		for (Carta carta : cartas) {
-			String valor = carta.getNumero();
+			String valor = carta.getValor();
 			Palos palo = carta.getPalo();
             
             cuentaValores.put(valor, cuentaValores.getOrDefault(valor, 0) + 1);
@@ -35,21 +35,21 @@ public class PokerStatus {
 		for (int count : cuentaValores.values()) {
             
 			if (count == 4) {
-                return "Poquer";
+                return new Poquer(cartas);
             }
             else if (count == 3) {
-                return "Trio";
+                return new Trio(cartas);
             }
         }
 		
 		for (int count : cuentaPalos.values() ) {
 			
 			if(count == 5) {
-				return "Color";
+				return new Color(cartas);
 			}
 		}
 		
-        return "Nada";
+        return null;
         
     }
 	

@@ -10,7 +10,7 @@ public class Carta {
 		this.palo = p;
 	}
 
-	public String getNumero() {
+	public String getValor() {
 		return valor;
 	}
 
@@ -31,14 +31,19 @@ public class Carta {
 	public int getValorInt() {
 		
 		switch (valor) {
+		
 		case "K" :
 			return 13;
+			
 		case "Q":
 			return 12;
+			
 		case "J":
 			return 11;
+			
 		case "A":
 			return 1;
+			
 		default:
 			return Integer.parseInt(valor);
 		}
