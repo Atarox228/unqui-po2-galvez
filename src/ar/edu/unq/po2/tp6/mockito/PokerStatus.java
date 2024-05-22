@@ -16,16 +16,16 @@ public class PokerStatus {
 		return c.substring(0, c.length()-1);
 	}
 	
-	public String verificar(String c1, String c2, String c3, String c4, String c5)
+	public String verificar(Carta c1, Carta c2, Carta c3, Carta c4, Carta c5)
     {
         
-		String[] cartas = {c1,c2,c3,c4,c5};
+		Carta[] cartas = {c1,c2,c3,c4,c5};
 		Map<String, Integer> cuentaValores = new HashMap<>();
-		Map<Character, Integer> cuentaPalos= new HashMap<>();
+		Map<Palos, Integer> cuentaPalos= new HashMap<>();
 		
-		for (String carta : cartas) {
-            String valor = carta.length() == 3 ? carta.substring(0, 2) : carta.substring(0, 1);
-            char palo = carta.charAt(carta.length() - 1);
+		for (Carta carta : cartas) {
+			String valor = carta.getNumero();
+			Palos palo = carta.getPalo();
             
             cuentaValores.put(valor, cuentaValores.getOrDefault(valor, 0) + 1);
             cuentaPalos.put(palo, cuentaPalos.getOrDefault(palo, 0) + 1);

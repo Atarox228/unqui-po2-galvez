@@ -7,17 +7,31 @@ import org.junit.jupiter.api.Test;
 
 class TestPokerStatus {
 	private PokerStatus poker ;
+	private Carta carta1;
+	private Carta carta2;
+	private Carta carta3;
+	private Carta carta4;
 	
 	@BeforeEach
 	public void setUp() throws Exception {
 		//Setup
 		poker = new PokerStatus();
+		carta1 = new Carta("K",Palos.Diamantes);
+		carta2 = new Carta("4",Palos.Diamantes);
+		carta3 = new Carta("4",Palos.Treboles);
+		carta4 = new Carta("4",Palos.Corazones);
 	}
 	
 	@Test
 	void pokerDeLetras() {
+		//Setup
+		Carta c1 = new Carta("Q",Palos.Corazones);
+		Carta c2 = new Carta("Q",Palos.Diamantes);
+		Carta c3 = new Carta("Q",Palos.Picas);
+		Carta c4 = new Carta("Q",Palos.Treboles);
+		
 		//exercise
-		String resultado = poker.verificar("QD", "QP", "QC", "QT", "KD");
+		String resultado = poker.verificar(c1, c2, c3, c4, carta1);
 		//verify
 		assertEquals(resultado, "Poquer");
 		
@@ -25,8 +39,14 @@ class TestPokerStatus {
 	
 	@Test
 	void pierna() {
+		
+		//Setup
+		Carta c1 = new Carta("8",Palos.Picas);
+		Carta c2 = new Carta("8",Palos.Treboles);
+		
 		//exercise		
-		String resultado = poker.verificar("9D", "8P", "9C", "7T", "9T");
+		String resultado = poker.verificar(carta2, c1, carta3, c2, carta4);
+		
 		//verify
 		assertEquals(resultado, "Trio");
 		
@@ -34,8 +54,14 @@ class TestPokerStatus {
 	
 	@Test
 	void doblePar() {
+		
+		//SetUp
+		Carta c1 = new Carta("8",Palos.Picas);
+		Carta c2 = new Carta("8",Palos.Treboles);
+		
 		//exercise	
-		String resultado = poker.verificar("2D", "2P", "1C", "3T", "3C");
+		String resultado = poker.verificar(carta2, carta3, carta1, c1, c2);
+		
 		//verify
 		assertEquals(resultado, "Nada");
 		
@@ -43,8 +69,13 @@ class TestPokerStatus {
 	
 	@Test
 	void pokerDeNumeros() {
+		
+		//SetUp
+		Carta c1 = new Carta("4",Palos.Corazones);
+		
 		//exercise
-		String resultado = poker.verificar("4D", "5P", "4C", "4T", "4P");
+		String resultado = poker.verificar(carta2, carta1, carta3, carta4, c1);
+		
 		//verify
 		assertEquals(resultado, "Poquer");
 		
@@ -52,8 +83,15 @@ class TestPokerStatus {
 	
 	@Test
 	void color() {
+		
+		//SetUp
+		Carta c1 = new Carta("6",Palos.Diamantes);
+		Carta c2 = new Carta("8",Palos.Diamantes);
+		Carta c3 = new Carta("10",Palos.Diamantes);
+		
 		//exercise
-		String resultado = poker.verificar("4P", "5P", "6P", "7P", "9P");
+		String resultado = poker.verificar(carta1, carta2, c1, c2, c3);
+		
 		//verify
 		assertEquals(resultado, "Color");
 		
